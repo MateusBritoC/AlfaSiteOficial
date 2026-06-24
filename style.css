@@ -496,7 +496,7 @@ h1 {
 		padding: 4px 2px 14px;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
-		touch-action: pan-x;
+		touch-action: auto;
 		cursor: grab;
 	}
 
