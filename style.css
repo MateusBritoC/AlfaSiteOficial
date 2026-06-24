@@ -481,10 +481,40 @@ h1 {
 		padding: 64px 0;
 	}
 
-	.hero-grid,
+	.hero-grid {
+		grid-template-columns: 1fr;
+	}
+
 	.service-grid,
 	.team-grid {
-		grid-template-columns: 1fr;
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(82%, 1fr);
+		grid-template-columns: unset;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 4px 2px 14px;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		touch-action: pan-x;
+		cursor: grab;
+	}
+
+	.service-grid::-webkit-scrollbar,
+	.team-grid::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	.service-grid::-webkit-scrollbar-thumb,
+	.team-grid::-webkit-scrollbar-thumb {
+		background: rgba(11, 111, 158, 0.45);
+		border-radius: 999px;
+	}
+
+	.service-card,
+	.member-card {
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
 	}
 
 	.about-wrap,
