@@ -1,0 +1,45 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="40" x2="760" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123E57"/>
+      <stop offset="1" stop-color="#0B2E43"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="256" y1="136" x2="654" y2="486" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27C1E4"/>
+      <stop offset="1" stop-color="#0FA6D1"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="28" y="28" width="844" height="564" rx="34" fill="url(#bg)"/>
+
+  <rect x="188" y="116" width="524" height="320" rx="28" fill="#0F3B54" stroke="#37C6E8" stroke-width="8"/>
+  <rect x="222" y="152" width="456" height="224" rx="16" fill="#082536"/>
+
+  <rect x="380" y="444" width="140" height="22" rx="10" fill="#35C4E7"/>
+  <rect x="304" y="482" width="292" height="22" rx="11" fill="#124D69"/>
+
+  <path d="M322 234L374 284L470 190" stroke="url(#accent)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M572 192L620 240M620 192L572 240" stroke="#1CB6DB" stroke-width="14" stroke-linecap="round"/>
+
+  <circle cx="214" cy="288" r="10" fill="#2EC6E8"/>
+  <circle cx="686" cy="288" r="10" fill="#2EC6E8"/>
+
+  <path d="M116 188C156 188 156 252 196 252" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M116 252C156 252 156 316 196 316" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M116 316C156 316 156 380 196 380" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M704 252C744 252 744 188 784 188" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M704 316C744 316 744 252 784 252" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M704 380C744 380 744 316 784 316" stroke="#1A93B8" stroke-width="6" stroke-linecap="round"/>
+
+  <circle cx="104" cy="188" r="11" fill="#26BCDF"/>
+  <circle cx="104" cy="252" r="11" fill="#26BCDF"/>
+  <circle cx="104" cy="316" r="11" fill="#26BCDF"/>
+
+  <circle cx="796" cy="188" r="11" fill="#26BCDF"/>
+  <circle cx="796" cy="252" r="11" fill="#26BCDF"/>
+  <circle cx="796" cy="316" r="11" fill="#26BCDF"/>
+
+  <text x="450" y="548" text-anchor="middle" fill="#7DE7FF" font-size="38" font-family="Segoe UI, Arial, sans-serif" font-weight="700">ASSISTENCIA TECNICA</text>
+</svg>
