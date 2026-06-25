@@ -649,6 +649,25 @@ h1 {
 	}
 }
 
+@keyframes cupFloat {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+	50% {
+		transform: translateY(-12px) rotate(4deg);
+	}
+}
+
+@keyframes promoSweep {
+	0% {
+		transform: translateX(-120%);
+	}
+	100% {
+		transform: translateX(120%);
+	}
+}
+
 @media (max-width: 980px) {
 	.hero-grid,
 	.service-grid,
@@ -761,15 +780,97 @@ h1 {
 
 /* ── SERVIÇOS EMPRESARIAIS ───────────────────────────── */
 .empresarial {
-	background: linear-gradient(180deg, #eaf7ff 0%, #f4fbff 100%);
+	position: relative;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 15% 0%, rgba(0, 156, 59, 0.14) 0%, transparent 30%),
+		radial-gradient(circle at 88% 8%, rgba(255, 221, 0, 0.15) 0%, transparent 28%),
+		linear-gradient(180deg, #eefaf1 0%, #f8fcff 52%, #ffffff 100%);
 	border-top: 1px solid var(--line);
 	border-bottom: 1px solid var(--line);
+}
+
+.empresarial::before,
+.empresarial::after {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	filter: blur(2px);
+	opacity: 0.9;
+	animation: cupFloat 12s ease-in-out infinite;
+}
+
+.empresarial::before {
+	top: 8%;
+	right: -120px;
+	width: 260px;
+	height: 260px;
+	background: radial-gradient(circle, rgba(255, 223, 0, 0.26) 0%, rgba(255, 223, 0, 0) 70%);
+}
+
+.empresarial::after {
+	bottom: 3%;
+	left: -130px;
+	width: 300px;
+	height: 300px;
+	background: radial-gradient(circle, rgba(0, 156, 59, 0.18) 0%, rgba(0, 156, 59, 0) 72%);
+	animation-delay: -5s;
 }
 
 .empresarial-subtitle {
 	color: var(--ink-soft);
 	max-width: 60ch;
 	margin-top: 8px;
+}
+
+.cup-promo {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 18px;
+	padding: 16px 18px;
+	border-radius: var(--radius-lg);
+	background: linear-gradient(135deg, rgba(0, 155, 59, 0.95) 0%, rgba(12, 124, 75, 0.96) 55%, rgba(255, 215, 0, 0.9) 100%);
+	color: #fff;
+	box-shadow: 0 14px 32px rgba(0, 100, 42, 0.18);
+	position: relative;
+	overflow: hidden;
+}
+
+.cup-promo::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 40%, transparent 60%);
+	transform: translateX(-120%);
+	animation: promoSweep 6s linear infinite;
+	pointer-events: none;
+}
+
+.cup-promo-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 14px;
+	border-radius: 999px;
+	background: rgba(8, 54, 28, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	font-weight: 800;
+	letter-spacing: 1px;
+	font-size: 0.72rem;
+	white-space: nowrap;
+}
+
+.cup-promo strong {
+	display: block;
+	font-size: 1.02rem;
+	margin-bottom: 4px;
+}
+
+.cup-promo p {
+	font-size: 0.88rem;
+	color: rgba(255, 255, 255, 0.92);
 }
 
 .plans-grid {
@@ -799,15 +900,15 @@ h1 {
 }
 
 .plan-featured {
-	border: 2px solid var(--brand);
-	background: linear-gradient(180deg, #ffffff 0%, #e8f8ff 100%);
-	box-shadow: 0 14px 40px rgba(15, 166, 209, 0.18);
+	border: 2px solid #05a64b;
+	background: linear-gradient(180deg, #ffffff 0%, #f3fff6 100%);
+	box-shadow: 0 14px 40px rgba(0, 100, 42, 0.14);
 	padding-top: 34px;
 }
 
 .plan-premium {
-	border: 2px solid var(--brand-deep);
-	background: linear-gradient(180deg, #ffffff 0%, #e4f4ff 100%);
+	border: 2px solid #d9aa00;
+	background: linear-gradient(180deg, #ffffff 0%, #fffbe8 100%);
 }
 
 .plan-badge {
@@ -815,7 +916,7 @@ h1 {
 	top: -16px;
 	left: 50%;
 	transform: translateX(-50%);
-	background: linear-gradient(135deg, var(--brand) 0%, #0aa1ca 100%);
+	background: linear-gradient(135deg, #009c3b 0%, #ffdf00 100%);
 	color: #fff;
 	font-weight: 800;
 	font-size: 0.78rem;
@@ -825,6 +926,22 @@ h1 {
 	white-space: nowrap;
 	box-shadow: 0 4px 14px var(--glow);
 	z-index: 3;
+}
+
+.plan-featured .plan-tier,
+.plan-featured .plan-name,
+.plan-featured .plan-currency,
+.plan-featured .plan-amount,
+.plan-featured .plan-desc {
+	color: #0d6b34;
+}
+
+.plan-premium .plan-tier,
+.plan-premium .plan-name,
+.plan-premium .plan-currency,
+.plan-premium .plan-amount,
+.plan-premium .plan-desc {
+	color: #8c6a00;
 }
 
 .plan-tier {
@@ -866,6 +983,23 @@ h1 {
 .plan-period {
 	font-size: 0.9rem;
 	color: var(--ink-soft);
+}
+
+.plan-old-price {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.76rem;
+	font-weight: 700;
+	color: rgba(31, 66, 88, 0.72);
+	margin-top: -2px;
+}
+
+.plan-old-price span {
+	text-decoration: line-through;
+	text-decoration-thickness: 2px;
+	text-decoration-color: rgba(31, 66, 88, 0.55);
+	color: rgba(31, 66, 88, 0.62);
 }
 
 .plan-desc {
@@ -912,11 +1046,11 @@ h1 {
 }
 
 .plan-cta-premium {
-	background: linear-gradient(135deg, var(--brand-deep) 0%, #0c82b8 100%);
-	color: #fff;
+	background: linear-gradient(135deg, #009c3b 0%, #ffdf00 100%);
+	color: #13310f;
 	font-weight: 700;
 	border-radius: 12px;
-	box-shadow: 0 8px 20px rgba(11, 111, 158, 0.22);
+	box-shadow: 0 8px 20px rgba(0, 100, 42, 0.2);
 }
 
 .plan-cta-premium:hover {
@@ -929,9 +1063,24 @@ h1 {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 14px;
 	margin-top: 40px;
-	background: linear-gradient(150deg, #073149 0%, #0e6086 100%);
+	background: linear-gradient(135deg, #003a17 0%, #008f3a 46%, #0c5d2b 100%);
 	border-radius: var(--radius-lg);
 	padding: 26px 28px;
+	position: relative;
+	overflow: hidden;
+}
+
+.plans-highlights::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background: linear-gradient(90deg, transparent 0%, rgba(255, 221, 0, 0.12) 20%, transparent 50%, rgba(255, 221, 0, 0.12) 80%, transparent 100%);
+	transform: translateX(-100%);
+	animation: promoSweep 7s linear infinite;
+	pointer-events: none;
 }
 
 .plans-highlight-item {
@@ -968,6 +1117,8 @@ h1 {
 	font-size: 0.78rem;
 	position: relative;
 	padding-left: 14px;
+	min-width: 220px;
+	flex: 1 1 220px;
 }
 
 .plans-notes li::before {
@@ -984,6 +1135,11 @@ h1 {
 }
 
 @media (max-width: 760px) {
+	.cup-promo {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
 	.plans-grid {
 		display: grid;
 		grid-auto-flow: column;
@@ -1017,9 +1173,22 @@ h1 {
 		padding: 18px;
 	}
 
+	.plans-highlight-item span,
+	.plans-notes li {
+		font-size: 0.76rem;
+	}
+
 	.plans-notes {
 		gap: 10px;
 		padding: 14px;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scroll-snap-type: x proximity;
+	}
+
+	.plans-notes li {
+		scroll-snap-align: start;
+		min-width: 74%;
 	}
 }
 
